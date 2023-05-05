@@ -1,0 +1,9 @@
+version: '1'
+services:
+  nginx:
+    container_name: nginx
+    build: ./requirements/nginx
+    ports:
+      - 8000:443
+  # mariadb:
+  # wordpress:
