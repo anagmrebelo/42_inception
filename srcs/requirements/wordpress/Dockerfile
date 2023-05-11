@@ -10,6 +10,11 @@ RUN apt-get install php\
 RUN	mkdir /run/php
 RUN chmod 755 /run/php
 
+# Substitutes the conf file to listen to port 9000
+COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
+
+# SUBSTITUTE WITH VOLUMES
+COPY ./info.php /var/www/html/arebelo/
 
 EXPOSE 9000
 
