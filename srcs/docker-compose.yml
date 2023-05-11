@@ -31,8 +31,11 @@ volumes:
   wordpress_vol:
     driver: local
     driver_opts:
+      # Whenever a file is changed in the container, the host is also updated
       o: bind
+      # Allows to set a local volume
       type: none
+      # location of the host to mount
       device: /Users/arebelo/42_inception/srcs/requirements/nginx/arebelo
 networks:
   inception:
