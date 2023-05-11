@@ -10,6 +10,8 @@ services:
       - wordpress
     env_file:
       - .env
+    volumes:
+      - wordpress_vol:/var/www/html/arebelo
     networks:
       - inception
   wordpress:
@@ -20,9 +22,18 @@ services:
     restart: always
     env_file:
       - .env
+    volumes:
+      - wordpress_vol:/var/www/html/arebelo
     networks:
       - inception
   # mariadb:
+volumes:
+  wordpress_vol:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /Users/arebelo/42_inception/srcs/requirements/nginx/arebelo
 networks:
   inception:
     driver: bridge
