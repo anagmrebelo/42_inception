@@ -7,6 +7,10 @@ RUN apt-get install nginx openssl --no-install-recommends --no-install-suggests 
 # Copy configuration file
 COPY ./conf/nginx.conf /etc/nginx/conf.d
 
+# Create temp index.html
+RUN mkdir /var/www/html/arebelo/
+COPY /arebelo/* /var/www/html/arebelo/
+
 # Set SSL
 RUN openssl req -new -newkey\
 	# type of public-key cryptography
@@ -28,4 +32,5 @@ RUN cat /etc/ssl/arebelo.csr /etc/ssl/arebelo.key > /etc/ssl/arebelo.pem
 # Connection port
 EXPOSE 443
 
+# Start nginx
 CMD ["nginx", "-g", "daemon off;"]

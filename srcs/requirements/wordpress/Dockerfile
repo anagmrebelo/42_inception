@@ -1,21 +1,16 @@
 FROM debian:bullseye
 
+# Install PHP
 RUN apt-get update -y
 RUN apt-get install php\
-	libapache2-mod-php\
-	php-pear\
-	php-cgi\
-	php-common\
-	php-mbstring\
-	php-zip\
-	php-net-socket\
-	php-gd\
-	php-xml-util\
-	php-mysql\
-	php-bcmath\
-	unzip\
-	wget\
-	git\
+	php-fpm\
 	-y
 
+# Create a folder where php and php-fm run
+RUN	mkdir /run/php
+RUN chmod 755 /run/php
+
+
 EXPOSE 9000
+
+CMD ["/usr/sbin/php-fpm7.4", "-F"]

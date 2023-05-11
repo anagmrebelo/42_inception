@@ -4,8 +4,10 @@ services:
     container_name: nginx
     build: ./requirements/nginx
     ports:
-      - 8000:443
+      - 443:443
     restart: always
+    depends_on:
+      - wordpress
     env_file:
       - .env
     networks:

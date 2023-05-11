@@ -8,3 +8,5 @@ clean:
 	docker rmi srcs-nginx
 	docker rmi srcs-wordpress
 	docker network rm srcs_inception
+
+re: clean all
