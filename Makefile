@@ -1,13 +1,14 @@
 all:
-	docker-compose -f srcs/docker-compose.yml up
+	docker-compose -f srcs/docker-compose.yml up -d
 clean:
-	docker stop nginx
-	docker stop wordpress
-	docker rm nginx
-	docker rm wordpress
-	docker rmi srcs_nginx
-	docker rmi srcs_wordpress
-	docker network rm srcs_inception
-	docker volume rm srcs_wordpress_vol
+	docker-compose -f srcs/docker-compose.yml down
+	docker rmi srcs-mariadb
+	rm -rf requirements/mariadb_vol/*
+
+images:
+	docker rmi srcs-wordpress
+	docker rmi srcs-nginx
 
 re: clean all
+
+# borrar volumenes en el host

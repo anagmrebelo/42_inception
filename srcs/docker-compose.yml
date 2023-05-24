@@ -1,8 +1,11 @@
-# version: '1'
+#version: '1'
 services:
   nginx:
     container_name: nginx
-    build: ./requirements/nginx
+    build:
+      context: ./requirements/nginx
+      dockerfile: Dockerfile
+    # image: nginx
     ports:
       - 443:443
     restart: always
@@ -17,16 +20,27 @@ services:
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
-    ports:
-      - 9000:9000
+    # image: wordpress
     restart: always
+    depends_on:
+      - mariadb
     env_file:
       - .env
     volumes:
       - wordpress_vol:/var/www/html/arebelo
     networks:
       - inception
-  # mariadb:
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb
+    # image: mariadb
+    restart: always
+    env_file:
+      - .env
+    networks:
+      - inception
+    volumes:
+     - mariadb_vol:/var/lib/mysql
 volumes:
   wordpress_vol:
     driver: local
@@ -36,7 +50,14 @@ volumes:
       # Allows to set a local volume
       type: none
       # location of the host to mount
-      device: /Users/arebelo/42_inception/srcs/requirements/nginx/arebelo
+      device: /Users/anarebelo/Documents/Coding/42/0_workspace/0_cursus/42_inception/srcs/requirements/nginx/arebelo
+  mariadb_vol:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /Users/anarebelo/Documents/Coding/42/0_workspace/0_cursus/42_inception/srcs/requirements/mariadb_vol
+
 networks:
   inception:
     driver: bridge
