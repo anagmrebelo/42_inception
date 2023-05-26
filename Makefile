@@ -1,9 +1,12 @@
 all:
-	docker-compose -f srcs/docker-compose.yml up -d
+	docker compose -f srcs/docker-compose.yml up
 clean:
-	docker-compose -f srcs/docker-compose.yml down
+	docker compose -f srcs/docker-compose.yml down
 	docker rmi srcs-mariadb
-	rm -rf requirements/mariadb_vol/*
+	docker volume rm srcs_mariadb_vol
+	docker volume rm srcs_wordpress_vol
+	rm -rf ./requirements/mariadb_vol
+	mkdir ./requirements/mariadb_vol
 
 images:
 	docker rmi srcs-wordpress
