@@ -1,7 +1,7 @@
 FROM debian:buster
 
 # Install mariadb
-#RUN apt-get update -y
+RUN apt-get update -y
 #RUN apt-get install -y mariadb-server mariadb-client
 
 # Create necessary folders with permissions
