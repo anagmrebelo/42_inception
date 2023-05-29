@@ -1,8 +1,8 @@
 FROM debian:buster
 
 # Install mariadb
-RUN apt-get update -y
-RUN apt-get install -y mariadb-server mariadb-client
+#RUN apt-get update -y
+#RUN apt-get install -y mariadb-server mariadb-client
 
 # Create necessary folders with permissions
 # RUN mkdir -p /var/run/mysqld
@@ -18,7 +18,7 @@ RUN apt-get install -y mariadb-server mariadb-client
 #RUN chmod +x /usr/local/bin/mariadb_start.sh
 
 # Expose portss
-EXPOSE 3306
+#EXPOSE 3306
 
 #ENTRYPOINT [ "/usr/local/bin/mariadb_start.sh" ]
 
