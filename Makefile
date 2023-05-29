@@ -5,7 +5,7 @@ clean:
 	docker rmi srcs-mariadb
 	docker volume rm srcs_mariadb_vol
 	docker volume rm srcs_wordpress_vol
-	rm -rf ./srcs/requirements/mariadb_vol/*
+	sudo rm -rf ./srcs/requirements/mariadb_vol/*
 
 images:
 	docker rmi srcs-wordpress
