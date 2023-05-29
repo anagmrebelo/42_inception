@@ -22,4 +22,4 @@ EXPOSE 3306
 
 #ENTRYPOINT [ "/usr/local/bin/mariadb_start.sh" ]
 
-CMD ["tail" ,"-f", "/dev/null"]
+#CMD ["tail" ,"-f", "/dev/null"]
