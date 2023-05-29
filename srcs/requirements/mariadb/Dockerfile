@@ -20,6 +20,6 @@ RUN chmod +x /usr/local/bin/mariadb_start.sh
 # Expose portss
 EXPOSE 3306
 
-ENTRYPOINT [ "/usr/local/bin/mariadb_start.sh" ]
+#ENTRYPOINT [ "/usr/local/bin/mariadb_start.sh" ]
 
-#CMD ["tail" ,"-f", "/dev/null"]
+CMD ["tail" ,"-f", "/dev/null"]
