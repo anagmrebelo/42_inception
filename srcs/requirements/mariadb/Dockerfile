@@ -10,8 +10,8 @@ RUN chown -R mysql:mysql /run/mysqld/
 RUN chmod -R 075 /run/mysqld/
 
 # Configuration file
-RUN rm -rf /etc/mysql/mariadb.conf.d/50-server.cnf
-COPY ./conf/server.conf /etc/mysql/mariadb.conf.d/50-server.cnf
+#RUN rm -rf /etc/mysql/mariadb.conf.d/50-server.cnf
+#COPY ./conf/server.conf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 # Run mariadb start script
 COPY ./tools/mariadb_start.sh /usr/local/bin/
