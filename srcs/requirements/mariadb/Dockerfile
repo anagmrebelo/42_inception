@@ -2,7 +2,7 @@ FROM debian:buster
 
 # Install mariadb
 RUN apt-get update -y
-RUN apt-get install -y mariadb-server mariadb-client
+RUN apt-get install -y mariadb-server
 
 # Create necessary folders with permissions
 RUN mkdir -p /var/run/mysqld
