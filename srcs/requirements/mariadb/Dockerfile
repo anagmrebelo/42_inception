@@ -16,7 +16,6 @@ COPY ./conf/server.conf /etc/mysql/mariadb.conf.d/50-server.cnf
 # Run mariadb start script
 COPY ./tools/mariadb_start.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/mariadb_start.sh
-RUN bash /usr/local/bin/mariadb_start.sh
 
 # Expose portss
 EXPOSE 3306
