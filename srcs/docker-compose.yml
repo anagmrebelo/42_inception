@@ -22,25 +22,25 @@ services:
     build: ./requirements/wordpress
     # image: wordpress
     restart: always
-    # depends_on:
-    #   - mariadb
+    depends_on:
+      - mariadb
     env_file:
       - .env
     volumes:
       - wordpress_vol:/var/www/html/arebelo
     networks:
       - inception
-  # mariadb:
-  #   container_name: mariadb
-  #   build: ./requirements/mariadb
-  #   # image: mariadb
-  #   restart: always
-  #   env_file:
-  #     - .env
-  #   networks:
-  #     - inception
-  #   volumes:
-  #    - mariadb_vol:/var/lib/mysql
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb
+    # image: mariadb
+    restart: always
+    env_file:
+      - .env
+    networks:
+      - inception
+    volumes:
+     - mariadb_vol:/var/lib/mysql
 volumes:
   wordpress_vol:
     driver: local
@@ -51,12 +51,12 @@ volumes:
       type: none
       # location of the host to mount
       device: /home/admin/42_inception/srcs/requirements/nginx/arebelo
-  #mariadb_vol:
-  #  driver: local
-  #  driver_opts:
-  #    o: bind
-  #    type: none
-  #    device: /home/admin/42_inception/srcs/requirements/mariadb_vol
+  mariadb_vol:
+   driver: local
+   driver_opts:
+     o: bind
+     type: none
+     device: /home/admin/42_inception/srcs/requirements/mariadb_vol
 
 networks:
   inception:
