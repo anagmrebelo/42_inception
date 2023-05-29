@@ -21,7 +21,7 @@ RUN chmod +x /usr/local/bin/mariadb_start.sh
 EXPOSE 3306
 
 ENTRYPOINT [ "/usr/local/bin/mariadb_start.sh" ]
-CMD ["mysqld", "--user=mysql", "--console"]
+#CMD ["mysqld", "--user=mysql", "--console"]
 #CMD ["mysqld", "--console"]
 
 #CMD ["tail" ,"-f", "/dev/null"]
