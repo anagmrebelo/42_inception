@@ -8,6 +8,6 @@ mysql -u root -e "GRANT ALL ON $DB_NAME.* TO '$DB_USER'@'%' IDENTIFIED BY '$DB_P
 mysql -u root -e "FLUSH PRIVILEGES;"
 mysqladmin -u root password "$MYSQL_ROOT_PASSWORD"
 
-mysqld
+#mysqld
 
 # If container restarts database is created again?
