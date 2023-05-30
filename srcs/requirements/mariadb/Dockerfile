@@ -1,26 +1,27 @@
 FROM debian:buster
 
-#INSTALL SERVICES
-RUN apt-get update
+# Install mariadb
+RUN apt-get update -y
 RUN apt-get install -y mariadb-server
 
-#SERVER CONF
-RUN rm /etc/mysql/mariadb.conf.d/50-server.cnf
+# Create necessary folders with permissions
+RUN mkdir -p /var/run/mysqld
+RUN chown -R mysql:mysql /run/mysqld/
+RUN chmod -R 075 /run/mysqld/
+
+# Configuration file
+RUN rm -rf /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY ./conf/server.conf /etc/mysql/mariadb.conf.d/50-server.cnf
 
-#CREATE DATABASE & USER
-ARG MYSQL_DATABASE
-ARG MYSQL_USER
-ARG MYSQL_PASSWORD
-ARG MYSQL_ROOT_PASSWORD
-COPY ./tools/create_user.sh /usr/local/bin/create_user.sh
-RUN chmod +x /usr/local/bin/create_user.sh
-RUN /usr/local/bin/create_user.sh
+# Run mariadb start script
+COPY ./tools/mariadb_start.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/mariadb_start.sh
+#RUN mysql_install_db
 
-#PORT
+# Expose ports
 EXPOSE 3306
 
-#CMD ["tail" ,"-f", "/dev/null"]
+ENTRYPOINT [ "/usr/local/bin/mariadb_start.sh" ]
 
-#START
-CMD ["mysqld"]
+# CMD ["mysqld"]
+#CMD ["tail" ,"-f", "/dev/null"]
