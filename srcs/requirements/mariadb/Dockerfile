@@ -17,8 +17,8 @@ COPY ./conf/server.conf /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY ./tools/mariadb_start.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/mariadb_start.sh
 ARG DB_NAME
-ARG MYSQL_USER
-ARG MYSQL_PASSWORD
+ARG DB_USER
+ARG DB_PASSWORD
 ARG MYSQL_ROOT_PASSWORD
 RUN /usr/local/bin/mariadb_start.sh
 #RUN mysql_install_db
