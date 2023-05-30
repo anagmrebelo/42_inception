@@ -5,9 +5,9 @@ RUN apt-get update -y
 RUN apt-get install -y mariadb-server
 
 # Create necessary folders with permissions
-RUN mkdir -p /var/run/mysqld
-RUN chown -R mysql:mysql /var/run/mysqld/
-RUN chmod -R 777 /var/run/mysqld
+# RUN mkdir -p /var/run/mysqld
+# RUN chown -R mysql:mysql /var/run/mysqld/
+# RUN chmod -R 777 /var/run/mysqld
 
 # Configuration file
 RUN rm -rf /etc/mysql/mariadb.conf.d/50-server.cnf
@@ -16,7 +16,7 @@ COPY ./conf/server.conf /etc/mysql/mariadb.conf.d/50-server.cnf
 # Run mariadb start script
 COPY ./tools/mariadb_start.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/mariadb_start.sh
-#RUN mysql_install_db
+RUN mysql_install_db
 
 # Expose ports
 EXPOSE 3306
