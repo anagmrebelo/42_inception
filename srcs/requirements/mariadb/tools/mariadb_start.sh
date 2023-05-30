@@ -9,6 +9,6 @@ mysql -u root -e "FLUSH PRIVILEGES;"
 mysqladmin -u root password "$MYSQL_ROOT_PASSWORD"
 mysqladmin -u root --password=${MYSQL_ROOT_PASSWORD} shutdown
 
-# mysqld
+mysqld
 
 # If container restarts database is created again?
