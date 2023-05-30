@@ -21,7 +21,7 @@ RUN mysql_install_db
 # Expose ports
 EXPOSE 3306
 
-#ENTRYPOINT [ "/usr/local/bin/mariadb_start.sh" ]
+ENTRYPOINT [ "/usr/local/bin/mariadb_start.sh" ]
 
 # CMD ["mysqld"]
-CMD ["tail" ,"-f", "/dev/null"]
+# CMD ["tail" ,"-f", "/dev/null"]
