@@ -20,9 +20,9 @@ BACKUP_HOST_PATH := $(shell grep BACKUP_HOST_PATH srcs/.env | cut -d '=' -f2)
 
 
 all:
-	docker-compose -f srcs/docker-compose.yml up -d --build
+	docker compose -f srcs/docker-compose.yml up -d --build
 stop:
-	docker-compose -f srcs/docker-compose.yml down
+	docker compose -f srcs/docker-compose.yml down
 
 cwp:
 	-docker stop wordpress
@@ -47,7 +47,7 @@ cadminer:
 	-docker rmi adminer
 
 clean:
-	-docker-compose -f srcs/docker-compose.yml down
+	-docker compose -f srcs/docker-compose.yml down
 	@echo "$(DARK_GREEN)NGNIX Docker & Image Clean$(DEF_COLOR)"
 	-docker rm nginx
 	-docker rmi nginx
