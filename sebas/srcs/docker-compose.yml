@@ -8,17 +8,17 @@ networks:
         driver: bridge
 
 services:
-    # nginx:
-    #     container_name: nginx
-    #     build: ./requirements/nginx
-    #     image: nginx
-    #     ports:
-    #      - 443:443
-    #     volumes:
-    #      - wordpress_data:/var/www/html
-    #     restart: always
-    #     networks:
-    #      - smironet
+    nginx:
+        container_name: nginx
+        build: ./requirements/nginx
+        image: nginx
+        ports:
+         - 443:443
+        volumes:
+         - wordpress_data:/var/www/html
+        restart: always
+        networks:
+         - smironet
 
 
     mariadb:
@@ -34,19 +34,19 @@ services:
          env_file:
           - .env
 
-    # wordpress:
-    #     container_name: wordpress
-    #     build: ./requirements/wordpress
-    #     image: wordpress
-    #     depends_on:
-    #      - mariadb
-    #     volumes:
-    #      - wordpress_data:/var/www/html
-    #     restart: always
-    #     networks:
-    #      - smironet
-    #     env_file:
-    #       - .env
+    wordpress:
+        container_name: wordpress
+        build: ./requirements/wordpress
+        image: wordpress
+        depends_on:
+         - mariadb
+        volumes:
+         - wordpress_data:/var/www/html
+        restart: always
+        networks:
+         - smironet
+        env_file:
+          - .env
 
 volumes:
     mariadb_data:

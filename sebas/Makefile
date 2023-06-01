@@ -9,7 +9,8 @@ down:
 	@docker compose -f ./srcs/docker-compose.yml down
 
 clean:
-	@rm -rf /home/ubuntu/42_inception/srcs/requirements/mariadb_vol/*
+	@rm -rf /home/smiro/data/mysql/*
+	@rm -rf /home/smiro/data/wordpress/*
 	@docker stop $$(docker ps -qa)
 	@docker rm $$(docker ps -qa)
 	@docker rmi $$(docker images -qa)
