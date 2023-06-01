@@ -4,13 +4,8 @@ FROM debian:buster
 RUN apt-get update -y
 RUN apt-get install -y mariadb-server
 
-# Create necessary folders with permissions
-# RUN mkdir -p /var/run/mysqld
-# RUN chown -R mysql:mysql /var/run/mysqld/
-# RUN chmod -R 777 /var/run/mysqld
-
-# # Configuration file
-# COPY ./conf/50-server.conf /etc/mysql/mariadb.conf.d/50-server.cnf
+# Configuration file
+COPY ./conf/50-server.conf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 # # Run mariadb start script
 # COPY ./tools/mariadb_start.sh /usr/local/bin/
