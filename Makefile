@@ -1,7 +1,7 @@
 all:
-	docker-compose -f srcs/docker-compose.yml up
+	docker compose -f srcs/docker-compose.yml up
 clean:
-	docker-compose -f srcs/docker-compose.yml down
+	docker compose -f srcs/docker-compose.yml down
 	docker rmi srcs_mariadb
 	docker rmi srcs_wordpress
 	docker rmi srcs_nginx
