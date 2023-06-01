@@ -12,6 +12,6 @@ clean:
 re: clean all
 
 prune:
-	docker system prune -a --volumes
+	docker system prune -a --volumes -y
 
 # borrar volumenes en el host
