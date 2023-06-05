@@ -1,12 +1,12 @@
-FROM debian:buster
+FROM debian:bullseye
 
 # Install PHP
 RUN apt-get update -y
 RUN apt-get install\
 	php\
 	php-fpm\
-	# wget\
-	# unzip\
+	wget\
+	unzip\
 	-y
 
 # Create a folder where php and php-fm run
@@ -14,9 +14,9 @@ RUN	mkdir /run/php
 RUN chmod 755 /run/php
 
 # Download Wordpress
-# RUN mkdir -p /var/www/html
-# RUN wget https://wordpress.org/latest.zip -P /var/www/html
-# RUN unzip /var/www/html/latest.zip
+RUN mkdir -p /var/www/html
+RUN wget https://wordpress.org/latest.zip
+RUN unzip latest.zip
 
 # Substitutes the conf file to listen to port 9000
 COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
