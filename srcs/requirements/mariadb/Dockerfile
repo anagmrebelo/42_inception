@@ -7,14 +7,15 @@ RUN apt-get install -y mariadb-server
 # Configuration file
 COPY ./conf/50-server.conf /etc/mysql/mariadb.conf.d/50-server.cnf
 
-# # Run mariadb start script
-# COPY ./tools/mariadb_start.sh /usr/local/bin/
-# RUN chmod +x /usr/local/bin/mariadb_start.sh
-# RUN /usr/local/bin/mariadb_start.sh
+# Run mariadb start script
+ARG	DB_NAME
+COPY ./tools/mariadb_start.sh /usr/local/bin/
+RUN	chmod +x /usr/local/bin/mariadb_start.sh
+RUN /usr/local/bin/mariadb_start.sh
 # RUN mysql_install_db
 
-# # Expose ports
-# EXPOSE 3306
+# Expose ports
+EXPOSE 3306
 
 # ENTRYPOINT [ "/usr/local/bin/mariadb_start.sh" ]
 
