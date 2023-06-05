@@ -16,7 +16,7 @@ services:
     env_file:
       - .env
     volumes:
-      - wordpress_vol:/var/html
+      - wordpress_vol:/var/www/html
     networks:
       - inception
 
@@ -62,13 +62,13 @@ volumes:
       # Allows to set a local volume
       type: none
       # location of the host to mount
-      device: /home/ubuntu/42_inception/srcs/requirements/nginx/arebelo
+      device: /Users/anarebelo/Documents/Coding/42/0_workspace/0_cursus/42_inception/srcs/requirements/nginx/arebelo
   mariadb_vol:
    driver: local
    driver_opts:
      o: bind
      type: none
-     device: /home/ubuntu/42_inception/srcs/requirements/mariadb_vol
+     device: /Users/anarebelo/Documents/Coding/42/0_workspace/0_cursus/42_inception/srcs/requirements/mariadb_vol
 
 
 ######## NETWORK ##########
