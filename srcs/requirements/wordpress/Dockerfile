@@ -5,8 +5,8 @@ RUN apt-get update -y
 RUN apt-get install\
 	php\
 	php-fpm\
-	wget\
-	unzip\
+	# wget\
+	# unzip\
 	-y
 
 # Create a folder where php and php-fm run
