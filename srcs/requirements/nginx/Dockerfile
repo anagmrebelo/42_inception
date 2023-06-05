@@ -9,7 +9,6 @@ COPY ./conf/nginx.conf /etc/nginx/conf.d
 
 # Create temp index.html
 RUN mkdir -p /var/www/html/
-# COPY /arebelo/* /var/www/html/arebelo/
 
 # Set SSL
 RUN openssl req -new -newkey\

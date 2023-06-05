@@ -5,22 +5,39 @@ RUN apt-get update -y
 RUN apt-get install\
 	php\
 	php-fpm\
-	wget\
-	unzip\
+	curl\
+	php-mysqli\
+	mariadb-client\
 	-y
 
 # Create a folder where php and php-fm run
 RUN	mkdir /run/php
 RUN chmod 755 /run/php
 
-# Download Wordpress
-RUN mkdir -p /var/www/html
-RUN wget https://wordpress.org/latest.zip -P /var/www/html/
-RUN unzip /var/www/html/latest.zip
+# Create WP setup script
+COPY ./tools/wordpress_start.sh /usr/local/bin/
+RUN	chmod +x /usr/local/bin/wordpress_start.sh
+
+# Install Wordpress CLI
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
 
 # Substitutes the conf file to listen to port 9000
 COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 
 EXPOSE 9000
 
-CMD ["/usr/sbin/php-fpm7.4", "-F"]
+ENTRYPOINT [ "/usr/local/bin/wordpress_start.sh" ]
+
+
+
+
+
+# CMD ["/usr/sbin/php-fpm7.4", "-F"]
+
+# Download Wordpress
+# RUN mkdir -p /var/www/html
+# RUN wget https://wordpress.org/latest.zip -P /var/www/html/
+# RUN unzip /var/www/html/latest.zip -d /var/www/html/
+# # # -d /var/www/html/
