@@ -1,4 +1,6 @@
 #version: '1'
+
+######## SERVICES #########
 services:
   nginx:
     container_name: nginx
@@ -50,6 +52,7 @@ services:
      - mariadb_vol:/var/lib/mysql
 
 
+######## VOLUMES ##########
 volumes:
   wordpress_vol:
     driver: local
@@ -68,6 +71,7 @@ volumes:
      device: /home/ubuntu/42_inception/srcs/requirements/mariadb_vol
 
 
+######## NETWORK ##########
 networks:
   inception:
     driver: bridge

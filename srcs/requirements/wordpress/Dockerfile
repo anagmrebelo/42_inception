@@ -10,6 +10,10 @@ RUN apt-get install php\
 RUN	mkdir /run/php
 RUN chmod 755 /run/php
 
+# Download Wordpress
+RUN mkdir -p /var/www/html
+RUN wget https://wordpress.org/latest.zip /var/www/html
+
 # Substitutes the conf file to listen to port 9000
 COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 

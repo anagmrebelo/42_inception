@@ -1,0 +1,4 @@
+TO DO's
+> machine name and nginx configuration
+> images names
+> volumes mount locartion
