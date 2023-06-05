@@ -38,6 +38,8 @@ services:
       context: ./requirements/mariadb
       args:
         - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASSWORD=${DB_PASSWORD}
     restart: always
     env_file:
       - .env
