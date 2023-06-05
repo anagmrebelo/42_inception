@@ -8,8 +8,8 @@ RUN apt-get install nginx openssl --no-install-recommends --no-install-suggests 
 COPY ./conf/nginx.conf /etc/nginx/conf.d
 
 # Create temp index.html
-RUN mkdir /var/www/html/arebelo/
-COPY /arebelo/* /var/www/html/arebelo/
+RUN mkdir -p /var/www/html/
+# COPY /arebelo/* /var/www/html/arebelo/
 
 # Set SSL
 RUN openssl req -new -newkey\
