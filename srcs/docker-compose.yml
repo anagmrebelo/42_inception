@@ -16,7 +16,7 @@ services:
     env_file:
       - .env
     volumes:
-      - wordpress_vol:/var/www/html/arebelo
+      - wordpress_vol:/var/www/html
     networks:
       - inception
 
@@ -30,7 +30,7 @@ services:
     env_file:
       - .env
     volumes:
-      - wordpress_vol:/var/www/html/arebelo
+      - wordpress_vol:/var/www/html
     networks:
       - inception
 

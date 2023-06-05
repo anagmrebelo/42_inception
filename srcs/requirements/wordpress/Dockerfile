@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:buster
 
 # Install PHP
 RUN apt-get update -y
@@ -15,7 +15,7 @@ RUN chmod 755 /run/php
 
 # Download Wordpress
 RUN mkdir -p /var/www/html
-RUN wget https://wordpress.org/latest.zip
+RUN wget https://wordpress.org/latest.zip -P /var/www/html
 RUN unzip latest.zip
 
 # Substitutes the conf file to listen to port 9000
