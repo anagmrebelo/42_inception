@@ -7,7 +7,7 @@ services:
     build:
       context: ./requirements/nginx
       dockerfile: Dockerfile
-    # image: nginx
+    image: nginx
     ports:
       - 443:443
     restart: always
@@ -23,7 +23,7 @@ services:
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
-    # image: wordpress
+    image: wordpress
     restart: always
     depends_on:
       - mariadb
@@ -43,6 +43,7 @@ services:
         - DB_USER=${DB_USER}
         - DB_PASSWORD=${DB_PASSWORD}
         - DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+    image: mariadb
     restart: always
     env_file:
       - .env

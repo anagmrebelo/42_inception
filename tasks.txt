@@ -6,6 +6,7 @@ TO DO's BARCELONA
 > check if need to create WP_user
 > check eval
 	- ensure that you can add a comment using the available worpress user
+> Makefile without rm
 
 TO DO's PORTUGAL
 > images names

@@ -1,5 +1,5 @@
 all:
-	docker compose -f srcs/docker-compose.yml up -d
+	docker compose -f srcs/docker-compose.yml up -d --build
 clean:
 	docker compose -f srcs/docker-compose.yml down
 	docker rmi srcs-mariadb
@@ -15,6 +15,6 @@ clean:
 re: clean all
 
 prune:
-	docker system prune -a --volumes -y
+	yes | docker system prune -a --volumes
 
 # borrar volumenes en el host
