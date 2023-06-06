@@ -1,11 +1,11 @@
-TO DO's
+TO DO's BARCELONA
 > machine name and nginx configuration
-> images names
 > volumes mount locartion
 > change WP_DOMAIN
 > WP_password change
-
-
 > check if need to create WP_user
-> check how to work on VM
 > check eval
+	- ensure that you can add a comment using the available worpress user
+
+TO DO's PORTUGAL
+> images names
