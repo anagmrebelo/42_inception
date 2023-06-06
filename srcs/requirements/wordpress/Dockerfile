@@ -29,15 +29,3 @@ COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 EXPOSE 9000
 
 ENTRYPOINT [ "/usr/local/bin/wordpress_start.sh" ]
-
-
-
-
-
-# CMD ["/usr/sbin/php-fpm7.4", "-F"]
-
-# Download Wordpress
-# RUN mkdir -p /var/www/html
-# RUN wget https://wordpress.org/latest.zip -P /var/www/html/
-# RUN unzip /var/www/html/latest.zip -d /var/www/html/
-# # # -d /var/www/html/
