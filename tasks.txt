@@ -2,3 +2,10 @@ TO DO's
 > machine name and nginx configuration
 > images names
 > volumes mount locartion
+> change WP_DOMAIN
+> WP_password change
+
+
+> check if need to create WP_user
+> check how to work on VM
+> check eval

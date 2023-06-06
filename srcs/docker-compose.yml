@@ -62,13 +62,13 @@ volumes:
       # Allows to set a local volume
       type: none
       # location of the host to mount
-      device: /Users/anarebelo/Documents/Coding/42/0_workspace/0_cursus/42_inception/srcs/requirements/nginx/arebelo
+      device: /home/ubuntu/42_inception/srcs/requirements/nginx/arebelo
   mariadb_vol:
    driver: local
    driver_opts:
      o: bind
      type: none
-     device: /Users/anarebelo/Documents/Coding/42/0_workspace/0_cursus/42_inception/srcs/requirements/mariadb_vol
+     device: /home/ubuntu/42_inception/srcs/requirements/mariadb_vol
 
 
 ######## NETWORK ##########
