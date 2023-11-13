@@ -5,8 +5,8 @@ clean:
 	docker rmi mariadb
 	docker rmi wordpress
 	docker rmi nginx
-	docker volume rm mariadb_vol
-	docker volume rm wordpress_vol
+	docker volume rm srcs_mariadb_vol
+	docker volume rm srcs_wordpress_vol
 	
 fclean: clean
 	# Delete before submitting - only testing purpose
