@@ -5,12 +5,12 @@ clean:
 	docker rmi srcs-mariadb
 	docker rmi srcs-wordpress
 	docker rmi srcs-nginx
-	docker volume rm srcs_mariadb_vol
-	docker volume rm srcs_wordpress_vol
+	docker volume rm mariadb_vol
+	docker volume rm wordpress_vol
 	
 # Delete before submitting - only testing purpose
-	sudo rm -rf ./srcs/requirements/mariadb_vol/*
-	sudo rm -rf ./srcs/requirements/nginx/arebelo/*
+	sudo rm -rf /home/arebelo/data/wordpress/*
+	sudo rm -rf /home/arebelo/data/mariadb/*
 
 re: clean all
 
