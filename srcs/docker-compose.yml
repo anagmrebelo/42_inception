@@ -63,13 +63,13 @@ volumes:
       # Allows to set a local volume
       type: none
       # location of the host to mount
-      device: /home/ubuntu/42_inception/srcs/requirements/nginx/arebelo
+      device: /home/arebelo/data/wordpress
   mariadb_vol:
    driver: local
    driver_opts:
      o: bind
      type: none
-     device: /home/ubuntu/42_inception/srcs/requirements/mariadb_vol
+     device: /home/arebelo/data/mariadb
 
 
 ######## NETWORK ##########
