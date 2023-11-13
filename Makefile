@@ -9,7 +9,6 @@ clean:
 	docker volume rm srcs_wordpress_vol
 	
 fclean: clean
-	# Delete before submitting - only testing purpose
 	sudo rm -rf /home/arebelo/data/wordpress/*
 	sudo rm -rf /home/arebelo/data/mariadb/*
 

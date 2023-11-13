@@ -1,6 +1,5 @@
 TO DO's BARCELONA
 > machine name and nginx configuration
-> volumes mount locartion
 > change WP_DOMAIN
 > WP_password change
 > check if need to create WP_user
@@ -8,5 +7,10 @@ TO DO's BARCELONA
 	- ensure that you can add a comment using the available worpress user
 > Makefile without rm
 
-TO DO's PORTUGAL
-> images names
+
+
+> In your WordPress database, there must be two users, one of them being the ad- ministrator. The administrator’s username can’t contain admin/Admin or admin- istrator/Administrator (e.g., admin, administrator, Administrator, admin-123, and so forth).
+
+> To make things simpler, you have to configure your domain name so it points to your local IP address.
+This domain name must be login.42.fr. Again, you have to use your own login.
+For example, if your login is wil, wil.42.fr will redirect to the IP address pointing to wil’s website.
