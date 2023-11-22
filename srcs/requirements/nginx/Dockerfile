@@ -24,7 +24,7 @@ RUN openssl req -new -newkey\
 	-nodes\
 	-keyout /etc/ssl/arebelo.key\
 	-out /etc/ssl/arebelo.csr\
-	-subj "/C=ES/ST=Barcelona/L=Barcelona/O=42/CN=arebelo"
+	-subj "/C=ES/ST=Barcelona/L=Barcelona/O=arebelo.42.fr/CN=arebelo"
 
 RUN cat /etc/ssl/arebelo.csr /etc/ssl/arebelo.key > /etc/ssl/arebelo.pem
 
