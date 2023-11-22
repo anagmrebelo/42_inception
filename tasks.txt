@@ -1,16 +1,8 @@
-TO DO's BARCELONA
-> machine name and nginx configuration
-> change WP_DOMAIN
-> WP_password change
-> check if need to create WP_user
-> check eval
-	- ensure that you can add a comment using the available worpress user
-> Makefile without rm
-
-
-
-> In your WordPress database, there must be two users, one of them being the ad- ministrator. The administrator’s username can’t contain admin/Admin or admin- istrator/Administrator (e.g., admin, administrator, Administrator, admin-123, and so forth).
-
+TO DO
 > To make things simpler, you have to configure your domain name so it points to your local IP address.
 This domain name must be login.42.fr. Again, you have to use your own login.
 For example, if your login is wil, wil.42.fr will redirect to the IP address pointing to wil’s website.
+
+QUESTIONS
+The difference between a Docker image used with docker compose and without docker compose?
+all from same debian
